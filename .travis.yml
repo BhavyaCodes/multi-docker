@@ -13,3 +13,10 @@ after_success:
   - docker build -t bhavyacodes/multi-nginx -f ./nginx
   - docker build -t bhavyacodes/multi-server -f ./server
   - docker build -t bhavyacodes/multi-worker -f ./worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push bhavyacodes/multi-client
+  - docker push bhavyacodes/multi-nginx
+  - docker push bhavyacodes/multi-server
+  - docker push bhavyacodes/multi-worker
