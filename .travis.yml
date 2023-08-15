@@ -2,7 +2,7 @@ sudo: required
 services:
   - docker
 before_install:
-  - docker build - t bhavyacodes/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t bhavyacodes/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   # if any scripts exists with a status code other than zero, then travis assumes our build failed
